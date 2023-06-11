@@ -20,6 +20,9 @@ public class Logic extends UniversalAdapter{
     public static final String PLUS ="Plus";
     public static final String LINE ="Line";
     public static final String SELECT ="Select";
+    private static final String GREEN = "Green";
+    private static final String BLUE = "Blue";
+    private static final String BLACK = "Black";
     private JLabel label = new JLabel("Color");
     private Canvas canvas;
     private ArrayList<Color> colorList;
@@ -116,27 +119,24 @@ public class Logic extends UniversalAdapter{
     }
 
 
-    @Override
     public void itemStateChanged(ItemEvent e) {
         String string = e.getItem().toString();
-        switch (string){
-            case "Green":
+        switch (string) {
+            case GREEN:
                 this.getLabel().setBackground(Color.GREEN);
                 this.setCurrentColor(Color.GREEN);
                 break;
-            case "Blue":
+            case BLUE:
                 this.getLabel().setBackground(Color.BLUE);
                 this.setCurrentColor(Color.BLUE);
                 break;
-            case "Black":
+            case BLACK:
                 this.getLabel().setBackground(Color.BLACK);
                 this.setCurrentColor(Color.BLACK);
                 break;
         }
         this.getCanvas().repaint();
-
     }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals(PLUS)){
